@@ -1,0 +1,26 @@
+import os
+
+# Function to detect AI references in a document
+def detect_ai_references(document_path):
+    ai_keywords = ["artificial intelligence", "AI", "machine learning", "ML", "deep learning"]
+
+    with open(document_path, 'r') as file:
+        content = file.read()
+
+    # Count the occurrences of AI keywords in the document
+    ai_count = sum(content.lower().count(keyword) for keyword in ai_keywords)
+
+    return ai_count
+
+# Main function
+def main():
+    # Path to the document to be analyzed
+    document_path = "data/sample_documents/document1.txt"
+
+    # Call the function to detect AI references in the document
+    ai_count = detect_ai_references(document_path)
+
+    print(f"AI References found in the document: {ai_count}")
+
+if __name__ == "__main__":
+    main()
